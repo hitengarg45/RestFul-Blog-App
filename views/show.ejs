@@ -1,0 +1,30 @@
+<!-- include header template -->
+<% include partials/header %>
+
+<div class="ui main text container segment">
+	<div class="ui huge header"><%= blog.title %></div>
+	<div class="ui top attached">
+		<div class="item">
+			<img class="ui centered rounded image" src="<%= blog.image %>">
+			<div class="content">
+				<span><%= blog.created.toDateString() %></span>
+			</div>
+			<div class="description">
+				<p><%- blog.body %></p>
+			</div>
+			<a class="ui yellow basic button" href="/blogs/<%= blog._id %>/edit">Edit</a>
+			<form id="delete" action="/blogs/<%= blog._id %>?_method=DELETE" method="POST">
+				<button class="ui red basic button">Delete</button>
+			</form>
+			<a class="ui blue basic mini right floated animated button" href="/blogs">
+				<div class="visible content">Back</div>
+  				<div class="hidden content">
+    				<i class="left arrow icon"></i>
+ 				</div>
+			</a>
+		</div>
+	</div>
+</div>
+
+<!-- include footer file -->
+<% include partials/footer %>
